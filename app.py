@@ -12,9 +12,9 @@ scaler = joblib.load('./scaler.pkl')
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        input_data = np.array([request.json['data']])
+        input_data = np.array([request.json['data']])git commit -m "Added Flask app"
         scaled_data = scaler.transform(input_data)
-        prediction = model.predict(scaled_data)
+        prediction = model.predict(scaled_data)git commit -m "Added Flask app"
         return jsonify(prediction.tolist())
     except Exception as e:
         return jsonify({'error': str(e)})
